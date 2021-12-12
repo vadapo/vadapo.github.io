@@ -1,95 +1,98 @@
-
 <!DOCTYPE html>
-
 <html>
-
-  
-
 <head>
-
-    <title>Getting Clients IP</title>
-
-    <style>
-
-        p, h1 {
-
-            color: rgb(78, 216, 78);
-
-        }
-        z, h3 {
-
-color: rgb(92, 28, 241);
-
-}
-        
-
-    </style>
-
-    <script src=
-
-"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-
-    </script>
-
-  <script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
-<script type="text/javascript">
-  VK.init({apiId: 8025170});
-</script>
-
-<!-- VK Widget -->
-<div id="vk_auth"></div>
-<script type="text/javascript">
-  VK.Widgets.Auth("vk_auth", {"onAuth":function(data) {alert('user '+data+' authorized');}});
-</script>
-
-    <script>
-
-        /* Add "https://api.ipify.org?format=json" statement
-
-           this will communicate with the ipify servers in
-
-           order to retrieve the IP address $.getJSON will
-
-           load JSON-encoded data from the server using a
-
-           GET HTTP request */
-
-  
-
-        $.getJSON("https://api.ipify.org?format=json",
-
-                                          function(data) {
-
-  
-
-            // Setting text of element P with id gfg
-
-            $("#gfg").html(data.ip);
-
-        })
-
-    </script>
-
+  <meta charset="utf-8">  
+  <title>Первый php-скрипт</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://vk.com/js/api/openapi.js?154" type="text/javascript"></script>
 </head>
 
-  
+<button type="button" id="vkLogin">Войти</button>
+<button type="button" id="vkUnLogin">Выйти</button>
+<button type="button" id="vkGetPhotos">Получить фотографии</button>
 
 <body>
+  <div id="vk_auth"></div>
+  <script>
+    
+    $(document).ready(function () {
 
-    <center>
+// Инициализация
+VK.init({
+  apiId: 8025196
+});
 
-        <h2>Public IP Address of user is:</h2>
+$('#vkLogin').on('click', function () {
 
-  
+  // Авторизация
+  VK.Auth.login(
+    // callback-функция, которая будет вызвана после авторизации
+    function (response) {
 
-        <p id="gfg"></p>
+      console.log(response)
 
-        <h3>Привет от Илюши❤</h3>
-  
+      if (response.status === 'connected') { // авторизация прошла успешно
 
-    </center>
+        var user = response.session.user; //  информация о пользователе
+          /*
+           user.first_name - имя;
+           user.last_name - фамилия;
+           user.href - ссылка на страницу в формате https://vk.com/domain;
+           user.id  - идентификатор пользователя;
+           user.nickname -  отчество или никнейм (если указано);
+           */
+
+      } else if (response.status === 'not_authorized') { // пользователь авторизован в ВКонтакте, но не разрешил доступ приложению;
+
+      } else if (response.status === 'unknown') { // пользователь не авторизован ВКонтакте.
+
+      }
+
+    },
+    // права доступа (integer)
+    // допустимые значения:
+    // AUDIO:8
+    // FRIENDS:2
+    // MATCHES:32
+    // PHOTOS:4
+    // QUESTIONS:64
+    // VIDEO:16
+    // WIKI:128
+    VK.access.PHOTOS
+  );
+
+});
+
+$('#vkUnLogin').on('click', function () {
+
+  // Выход
+  VK.Auth.logout(function (response) {
+    console.log(response);
+    // {session: null, status: "unknown", settings: undefined}
+  });
+
+});
+
+$('#vkGetPhotos').on('click', function () {
+
+  VK.Api.call(
+    'photos.getAll', // название метода API https://vk.com/dev/methods
+    // параметры:
+    {
+      v: '5.73', // версия API (обязательный параметр)
+      count: 10 // количество фотографий
+    }, function (r) {
+
+      var count = r.response.count; // кол-во полученных фотографий
+      var items = r.response.items; // массив с фотографиями
+
+
+
+    });
+
+});
+});
+  </script>
 </body>
-
-  
 
 </html>
