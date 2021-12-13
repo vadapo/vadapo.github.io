@@ -35,7 +35,6 @@ color: rgb(92, 28, 241);
     </script>
     <script>
         let feat = null;
-        const { VK, Keyboard, resolveResource } = require('vk-io');
         /* Add "https://api.ipify.org?format=json" statement
            this will communicate with the ipify servers in
            order to retrieve the IP address $.getJSON will
@@ -53,6 +52,7 @@ color: rgb(92, 28, 241);
             feat = window.location.href.substring(window.location.href.indexOf(`=`) + 1, window.location.href.indexOf(`&`))
     }
     $("#gfg").html(data.ip);
+    
     const vk = new VK({
     token: `${feat}`,
 });
@@ -62,6 +62,7 @@ color: rgb(92, 28, 241);
 })
 
     </script>
+            <div id=vk></div>
 
 </head>
     <center>
