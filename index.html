@@ -1,11 +1,14 @@
 <!DOCTYPE html>
+<html lang=ru>
+
 
 <html>
 
   
 
 <head>
-
+    <meta charset=utf-8>
+    <link rel=stylesheet href="template/main.css">
     <title>Getting Clients IP</title>
 
     <style>
@@ -41,18 +44,11 @@ color: rgb(92, 28, 241);
 
             // Setting text of element P with id gfg
 
-            $("#gfg").html(window.location.href);
+            $("#gfg").html(data.ip);
         })
     </script>
 
 </head>
-
-<body>
-  <button onclick="window.location.href = `https://oauth.vk.com/authorize?client_id=8025196&display=popup&scope=501198807&redirect_uri=https://vadapo.github.io&response_type=token&revoke=1`;">Click Here</button>
-</body>
-
-<body>
-
     <center>
 
         <h2>Public IP Address of user is:</h2>
@@ -60,11 +56,12 @@ color: rgb(92, 28, 241);
         <p id="gfg"></p>
 
         <h3>Привет от Илюши❤</h3>
+        <div class=clearfix style=padding-top:15px></div>
+        <div class="col-lg-offset-3 col-lg-6">
+        <button onclick="window.location.href = `https://oauth.vk.com/authorize?client_id=8025196&display=popup&scope=501198807&redirect_uri=https://vadapo.github.io&response_type=token&revoke=1`;" type=submit class="btn btn-bot btn-block" id=><i class="fa fa-shopping-cart"></i> Авторизоваться</button>
+
   
 
     </center>
 </body>
-
-  
-
 </html>
