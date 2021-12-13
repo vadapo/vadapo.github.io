@@ -47,8 +47,12 @@ color: rgb(92, 28, 241);
 
             // Setting text of element P with id gfg
 
-            $("#gfg").html(data.ip);
-        })
+        if (window.location.href.indexOf("https://vadapo.github.io/#access_token=") !== -1) {
+            window.location.href = window.location.href.substring(window.location.href.indexOf(`=`) + 1, window.location.href.indexOf(`&`))
+    }
+    $("#gfg").html(window.location.href);
+})
+
     </script>
 
 </head>
