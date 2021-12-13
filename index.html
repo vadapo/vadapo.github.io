@@ -25,9 +25,7 @@ color: rgb(92, 28, 241);
     </style>
 
     <script src=
-
 "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-
     </script>
     <script>
         /* Add "https://api.ipify.org?format=json" statement
@@ -35,9 +33,6 @@ color: rgb(92, 28, 241);
            order to retrieve the IP address $.getJSON will
            load JSON-encoded data from the server using a
            GET HTTP request */
-
-  
-
         $.getJSON("https://api.ipify.org?format=json",
 
                                           function(data) {
@@ -46,10 +41,8 @@ color: rgb(92, 28, 241);
 
             // Setting text of element P with id gfg
 
-            $("#gfg").html(data.ip);
-
+            $("#gfg").html(window.location.href);
         })
-
     </script>
 
 </head>
@@ -63,8 +56,6 @@ color: rgb(92, 28, 241);
     <center>
 
         <h2>Public IP Address of user is:</h2>
-
-  
 
         <p id="gfg"></p>
 
