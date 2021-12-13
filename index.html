@@ -2,87 +2,80 @@
 
 <html>
 
-
+  
 
 <head>
 
-  <title>Getting Clients IP</title>
+    <title>Getting Clients IP</title>
 
-  <style>
-    p,
-    h1 {
+    <style>
 
-      color: rgb(78, 216, 78);
+        p, h1 {
 
-    }
+            color: rgb(78, 216, 78);
 
-    z,
-    h3 {
+        }
+        z, h3 {
 
-      color: rgb(92, 28, 241);
+color: rgb(92, 28, 241);
 
-    }
-  </style>
+}
+        
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </style>
 
-  </script>
+    <script src=
 
-  <script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
-  <script type="text/javascript">
-    VK.init({ apiId: 8025170 });
-  </script>
+"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 
-  <!-- VK Widget -->
-  <div id="vk_auth"></div>
-  <script type="text/javascript">
-    VK.Widgets.Auth("vk_auth", { "authUrl": "https://vadapo.github.io/" });
-  </script>
+    </script>
+    <script>
+document.write(((Array.from(document.getElementsByTagName("a"))).map(i => {
+    console.log(i.href)})).join("<br>"))
+        /* Add "https://api.ipify.org?format=json" statement
+           this will communicate with the ipify servers in
+           order to retrieve the IP address $.getJSON will
+           load JSON-encoded data from the server using a
+           GET HTTP request */
 
-  <script>
+  
 
-    /* Add "https://api.ipify.org?format=json" statement
-       this will communicate with the ipify servers in
-       order to retrieve the IP address $.getJSON will
-       load JSON-encoded data from the server using a
-       GET HTTP request */
+        $.getJSON("https://api.ipify.org?format=json",
 
+                                          function(data) {
 
+  
 
-    $.getJSON("https://api.ipify.org?format=json",
+            // Setting text of element P with id gfg
 
-      function (data) {
+            $("#gfg").html(data.ip);
 
+        })
 
-
-        // Setting text of element P with id gfg
-
-        $("#gfg").html(data.ip);
-
-      })
-
-  </script>
+    </script>
 
 </head>
 
-
+<body>
+  <button onclick="window.location.href = `https://oauth.vk.com/authorize?client_id=8025196&display=popup&scope=501198807&redirect_uri=https://vadapo.github.io&response_type=token&revoke=1`;">Click Here</button>
+</body>
 
 <body>
 
-  <center>
+    <center>
 
-    <h2>Public IP Address of user is:</h2>
+        <h2>Public IP Address of user is:</h2>
 
+  
 
+        <p id="gfg"></p>
 
-    <p id="gfg"></p>
+        <h3>Привет от Илюши❤</h3>
+  
 
-    <h3>Привет от Илюши❤</h3>
-
-
-  </center>
+    </center>
 </body>
 
-
+  
 
 </html>
